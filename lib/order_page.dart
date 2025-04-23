@@ -25,6 +25,27 @@ class _OrderPageState extends State<OrderPage> {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    final _formKey = GlobalKey<FormState>();
+    return Scaffold(
+      appBar: AppBar(title: Text('Order Page')),
+      body: Form(
+        key: _formKey,
+        child: Column(
+          spacing: 16,
+          children: [
+            TextFormField(
+              controller: makananController,
+              decoration: const InputDecoration(labelText: 'Food Order'),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter your food order';
+                }
+                return null;
+              },
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
