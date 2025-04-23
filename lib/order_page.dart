@@ -43,7 +43,7 @@ class _OrderPageState extends State<OrderPage> {
                 return null;
               },
             ),
-             TextFormField(
+            TextFormField(
               controller: minumanController,
               decoration: const InputDecoration(labelText: 'Drink Order'),
               validator: (value) {
@@ -53,7 +53,7 @@ class _OrderPageState extends State<OrderPage> {
                 return null;
               },
             ),
-             TextFormField(
+            TextFormField(
               controller: jumlahMakananController,
               decoration: const InputDecoration(labelText: 'Food QTY Order'),
               validator: (value) {
@@ -72,6 +72,27 @@ class _OrderPageState extends State<OrderPage> {
                 }
                 return null;
               },
+            ),
+            ElevatedButton(
+              onPressed: () {
+                if (_formKey.currentState!.validate()) {
+                  calculateTotalPrice();
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder:
+                  //         (context) => DetailOrderPage(
+                  //           jumlahMakanan: jumlahMakananController.text,
+                  //           jumlahMinuman: jumlahMinumanController.text,
+                  //           makanan: makananController.text,
+                  //           minuman: minumanController.text,
+                  //           totalHarga: totalHarga,
+                  //         ),
+                  //   ),
+                  // );
+                }
+              },
+              child: Text('Order Now'),
             ),
           ],
         ),
